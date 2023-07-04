@@ -25,16 +25,17 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+  min-width: 362px;
+  display: block;
+  position: relative;
+  z-index: -2;
 }
 
 
 body {
   background-color: #121212;
-  display: block;
-  position: absolute;
-  height:100%;
-  width:100%;
-  z-index: -100;
+  height:100vh;
+  width:100vw;
 }
 
 [contenteditable] {
@@ -42,18 +43,21 @@ body {
 }
 
 #header {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
   position: sticky;
   z-index: 1000;
   background-color: #121212;
   width: 100vw;
+  min-width: 362px;
   top: 0;
   height: 72px;
   box-shadow: 0px 4px 0px 0px #1E1E1E;
 }
 
 #logo {
-  display: inline-block;
-  height: 100%;
+  display: block;
   padding-left: 6px;
 }
 
@@ -90,9 +94,9 @@ body {
 }
 
 #main {
-  display: inline;
+  display: block;
   width: 100vw;
-  height: 100%;
+  min-width: 362px;
   background-color: #121212;
 }
 
@@ -103,7 +107,8 @@ body {
 
 #newNoteWrapper .note {
   width: 40vw;
-  min-height: fit-content;
+  min-width: 260px;
+  min-height: 200px;
   margin-top: 1vh;
   margin-left: auto;
   margin-right: auto;
@@ -127,13 +132,11 @@ body {
 
 
 #buttonDiv {
-  display: inline-block;
-  position: absolute;
-  bottom: 7px;
-  left: 50%;
-  transform: translate(-50%, 0);
+  display:flex;
+  justify-content: center;
+  align-items: center;
   width: 10%;
-
+  min-width: 40px
 }
 
 #newNoteButton {
@@ -233,6 +236,7 @@ body {
   border: 2px solid #ffffff;
   word-wrap: break-word;
   min-height: fit-content;
+  min-width: 260px;
 }
 
 .noteHeaderWrapper {
@@ -533,12 +537,9 @@ margin-left: 6%;
 }
 
 .navbar {
-  position: absolute;
   color: #ffffff;
   z-index: 61;
-  top: 0;
-  right: 38px;
-  width: 38px
+  
 }
 
 .navbar-container {
