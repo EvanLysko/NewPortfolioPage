@@ -4,16 +4,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="styles.css"></link>
-  <script>
-    document.body.classList.add("js-loading");
-    window.addEventListener("load", removeLoadingClass);
-    function removeLoadingClass() {
-        document.body.classList.remove('js-loading');
-    }
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-    </meta>
-
-  </script>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1"></meta>
 </head>
 
 <body>
@@ -132,7 +123,13 @@
 </div>
  
 
-
+<script>
+    document.body.classList.add("js-loading");
+    window.addEventListener("load", removeLoadingClass);
+    function removeLoadingClass() {
+        document.body.classList.remove('js-loading');
+    }
+  </script>
 <script src="scripts.js" ></script>
 </body>
 
