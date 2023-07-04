@@ -413,17 +413,17 @@
     #IntroRightWrapper {
         padding: 0px;
         width: 100%;
-        margin-top: 2vh;
+        margin-top: 0px;
     }
     #IntroHeaderWrapper {
         display: flex;
         width: 100%;
-        margin-top: 2vh;
         justify-content: center;
         align-items: center;
     }
     #IntroHeader {
         width: fit-content;
+        margin-top: 0px;
     }
     #IntroText {
         margin-top: 0px;
