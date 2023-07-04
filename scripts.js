@@ -5,7 +5,7 @@ let darkColors = ["rgb(101, 91, 83)", "rgb(96, 77, 93)", "rgb(65, 78, 97)", "rgb
 
 function run() {
 
-    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 1, "SQL" : 1, "PHP" : 1});
+    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
     languageBox.id = "languageBox";
 
     document.getElementById("LanguageBoxWrapper").appendChild(languageBox);
@@ -45,7 +45,7 @@ function run() {
 
 }
 
-function getLanguagesElement(languageDict) {
+function getLanguagesElement(languageDict, vert) {
     let projectLanguages = document.createElement("div");
 
     let totalLanguageUnits = 0;
@@ -57,29 +57,53 @@ function getLanguagesElement(languageDict) {
         }
     }
 
-    let minwidth = 52;
-    let minTotalWidth = minwidth * Object.keys(languageDict).length;
-    let mainWidth = document.getElementById("main").offsetWidth;
-    let extraWidth = Math.max(mainWidth - minTotalWidth, 0);
-    let minwidthProp = minwidth / mainWidth;
-    let extraWidthProp = extraWidth / mainWidth;
+    if (!vert || !window.matchMedia("(max-width: 700px)").matches) {
 
-    let offsetFix = Math.max(16 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
-    for (let language of Object.keys(languageDict)) {
-        let languageElement = document.createElement("div");
-        if (language == "C++") {
-            languageElement.className = "language Cplusplus";
-        } else {
-            languageElement.className = "language " + language;
+        let minwidth = 52;
+        let minTotalWidth = minwidth * Object.keys(languageDict).length;
+        let mainWidth = document.getElementById("main").offsetWidth;
+        let extraWidth = Math.max(mainWidth - minTotalWidth, 0);
+        let minwidthProp = minwidth / mainWidth;
+        let extraWidthProp = extraWidth / mainWidth;
+
+        let offsetFix = Math.max(16 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
+        for (let language of Object.keys(languageDict)) {
+            let languageElement = document.createElement("div");
+            if (language == "C++") {
+                languageElement.className = "language Cplusplus";
+            } else {
+                languageElement.className = "language " + language;
+            }
+            languageElement.innerHTML = language;
+            projectLanguages.appendChild(languageElement);
+
+            let percentage = (((languageDict[language]) / totalLanguageUnits) * extraWidthProp + minwidthProp) * 100
+
+            languageElement.style.width = "calc(" + percentage + "%" + " + " + offsetFix + "px)";
         }
-        languageElement.innerHTML = language;
-        projectLanguages.appendChild(languageElement);
+        return projectLanguages;
+    } else if (vert) {
+        let height = 500;
+        let minheight = 30;
+        let minTotalHeight = minheight * Object.keys(languageDict).length;
+        let extraheight = Math.max(height - minTotalHeight, 0);
+        let offsetFix = minheight + Math.max(8 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
+        for (let language of Object.keys(languageDict)) {
+            let languageElement = document.createElement("div");
+            if (language == "C++") {
+                languageElement.className = "language Cplusplus";
+            } else {
+                languageElement.className = "language " + language;
+            }
+            languageElement.innerHTML = language;
+            projectLanguages.appendChild(languageElement);
 
-        let percentage = (((languageDict[language]) / totalLanguageUnits) * extraWidthProp + minwidthProp) * 100
+            let elemHeight = (((languageDict[language]) / totalLanguageUnits) * extraheight);
 
-        languageElement.style.width = "calc(" + percentage + "%" + " + " + offsetFix + "px)";
+            languageElement.style.height = "calc(" + elemHeight + "px" + " + " + offsetFix + "px)";
+        }
+        return projectLanguages;
     }
-    return projectLanguages;
 }
 
 function addPosition(positionTitle, positionDescription, positionDict, positionImgSrc, positionLink, positionLinkText) {
