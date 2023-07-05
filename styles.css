@@ -398,7 +398,7 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media (orientation: portrait) or (max-width: 800px) {
     #IntroTopWrapper {
         display:flex;
         flex-direction: column;

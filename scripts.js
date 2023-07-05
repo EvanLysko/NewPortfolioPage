@@ -1,7 +1,13 @@
 let lightColors = ["rgb(253, 228, 207)", "rgb(241, 192, 232)", "rgb(163, 196, 243)", "rgb(144, 219, 244)", "rgb(185, 251, 192)", "rgb(255, 255, 255)"];
 let darkColors = ["rgb(101, 91, 83)", "rgb(96, 77, 93)", "rgb(65, 78, 97)", "rgb(58, 88, 98)", "rgb(74, 100, 77)", "rgb(18, 18, 18)"];
 
-
+timeout = false;
+window.addEventListener('resize', function() {
+    // clear the timeout
+    clearTimeout(timeout);
+    // start timing for event "completion"
+    timeout = setTimeout(resizeLanguages, 400);
+  });
 
 function run() {
 
@@ -57,8 +63,28 @@ function getLanguagesElement(languageDict, vert) {
         }
     }
 
-    if (!vert || !window.matchMedia("(max-width: 700px)").matches) {
+    if (vert && (window.matchMedia("(max-width: 800px)").matches || window.matchMedia("(orientation: portrait)").matches)) {
+        let height = 500;
+        let minheight = 30;
+        let minTotalHeight = minheight * Object.keys(languageDict).length;
+        let extraheight = Math.max(height - minTotalHeight, 0);
+        let offsetFix = minheight + Math.max(8 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
+        for (let language of Object.keys(languageDict)) {
+            let languageElement = document.createElement("div");
+            if (language == "C++") {
+                languageElement.className = "language Cplusplus";
+            } else {
+                languageElement.className = "language " + language;
+            }
+            languageElement.innerHTML = language;
+            projectLanguages.appendChild(languageElement);
 
+            let elemHeight = (((languageDict[language]) / totalLanguageUnits) * extraheight);
+
+            languageElement.style.height = "calc(" + elemHeight + "px" + " + " + offsetFix + "px)";
+        }
+        return projectLanguages;
+    } else {
         let minwidth = 52;
         let minTotalWidth = minwidth * Object.keys(languageDict).length;
         let mainWidth = document.getElementById("main").offsetWidth;
@@ -82,28 +108,16 @@ function getLanguagesElement(languageDict, vert) {
             languageElement.style.width = "calc(" + percentage + "%" + " + " + offsetFix + "px)";
         }
         return projectLanguages;
-    } else if (vert) {
-        let height = 500;
-        let minheight = 30;
-        let minTotalHeight = minheight * Object.keys(languageDict).length;
-        let extraheight = Math.max(height - minTotalHeight, 0);
-        let offsetFix = minheight + Math.max(8 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
-        for (let language of Object.keys(languageDict)) {
-            let languageElement = document.createElement("div");
-            if (language == "C++") {
-                languageElement.className = "language Cplusplus";
-            } else {
-                languageElement.className = "language " + language;
-            }
-            languageElement.innerHTML = language;
-            projectLanguages.appendChild(languageElement);
+    } 
+}
 
-            let elemHeight = (((languageDict[language]) / totalLanguageUnits) * extraheight);
 
-            languageElement.style.height = "calc(" + elemHeight + "px" + " + " + offsetFix + "px)";
-        }
-        return projectLanguages;
-    }
+function resizeLanguages() {
+    let lbw = document.getElementById("LanguageBoxWrapper");
+    lbw.innerHTML = "";
+    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
+    languageBox.id = "languageBox";
+    lbw.appendChild(languageBox);
 }
 
 function addPosition(positionTitle, positionDescription, positionDict, positionImgSrc, positionLink, positionLinkText) {
@@ -122,7 +136,7 @@ function addPosition(positionTitle, positionDescription, positionDict, positionI
     positionDescriptionElement.className = "positionDescription";
     positionDescriptionElement.innerHTML = positionDescription;
 
-    let positionLanguages = getLanguagesElement(positionDict);
+    let positionLanguages = getLanguagesElement(positionDict, false);
     positionLanguages.className = "projectLanguages";
 
 
@@ -169,7 +183,7 @@ function addProjectNoImg(positionTitle, positionDescription, positionDict, posit
     positionDescriptionElement.className = "positionDescription";
     positionDescriptionElement.innerHTML = positionDescription;
 
-    let positionLanguages = getLanguagesElement(positionDict);
+    let positionLanguages = getLanguagesElement(positionDict, false);
     positionLanguages.className = "projectLanguages";
 
 
@@ -219,7 +233,7 @@ function addResearch(positionTitle, positionDescription, positionDict, positionI
     positionDescriptionElement.className = "positionDescription";
     positionDescriptionElement.innerHTML = positionDescription;
 
-    let positionLanguages = getLanguagesElement(positionDict);
+    let positionLanguages = getLanguagesElement(positionDict, false);
     positionLanguages.className = "projectLanguages";
 
 
@@ -271,7 +285,7 @@ function addProject(projectTitle, projectDescription, languageDict, githubLink, 
     projectDescriptionElement.className = "projectDescription";
     projectDescriptionElement.innerHTML = projectDescription;
 
-    let projectLanguages = getLanguagesElement(languageDict);
+    let projectLanguages = getLanguagesElement(languageDict, false);
     projectLanguages.className = "projectLanguages";
 
     let projectLiveObject;
