@@ -759,6 +759,10 @@ class Board {
         this.running = true;
 
         let curMove = e.target;
+        if (curMove.innerHTML == "") {
+            this.running = false;
+            return;
+        }
         let moves = Array.from(document.querySelectorAll(".move"));
         for (let move of moves) {
             move.className = "move";
