@@ -539,6 +539,7 @@
     .projectLiveObject {
         display: block;
         width: 100%;
+        min-width: 0px;
         min-height: 400px;
         height: auto;
         border-radius: 8px;
