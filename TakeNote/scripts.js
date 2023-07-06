@@ -1095,7 +1095,7 @@ function submitNote() {
 }
 
 function setAmountOfColumns() {
-  let newNumCol = Math.trunc(document.body.clientWidth / (250 + document.body.clientWidth / 20));
+  let newNumCol = Math.trunc(document.body.clientWidth / (260 + document.body.clientWidth / 20));
   if (newNumCol == numColumns) {
     return;
   }
