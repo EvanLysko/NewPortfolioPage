@@ -195,6 +195,8 @@
         transition-timing-function: ease-in-out;
     }
 
+
+
     .projectLinkImage {
         margin: -10%;
         margin-left: 0px;
@@ -398,7 +400,7 @@
     }
 }
 
-@media (orientation: portrait) or (max-width: 800px) {
+@media (orientation: portrait), (max-width: 800px) {
     #IntroTopWrapper {
         display:flex;
         flex-direction: column;
@@ -554,6 +556,10 @@
         height: fit-content;
         align-items: center;
         justify-content: space-around;
+    }
+
+    #Weather {
+        min-height: 640px;
     }
 }
     

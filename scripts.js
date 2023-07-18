@@ -25,7 +25,7 @@ function run() {
     addProject("Chess", "A fully functional chess game that allows a user to play a local game of chess. It includes all standard chess rules and features. It also includes the ability to look back through previous moves throughout the game sequence.",
     {"Javascript" : 6, "CSS" : 2, "HTML" : 1}, "https://github.com/EvanLysko/FrontDev/tree/main/ChessGame", "/ChessGame/index.html");
 
-    addProject("Weather Website - revisit in progress", "A website that allows users to search by city or zip code and get a current, hourly, and daily forecast. It includes a live, interactable map as well as a table displaying the current air quality.",
+    addProject("Weather", "A website that allows users to search by city or zip code and get a current, hourly, and daily forecast. It includes a live, interactable map as well as a table displaying the current air quality.",
     {"Javascript" : 6,"CSS" : 2, "HTML" : 1}, "https://github.com/EvanLysko/WeatherPage", "/WeatherPage/index.html");
 
     //python
@@ -306,6 +306,7 @@ function addProject(projectTitle, projectDescription, languageDict, githubLink, 
     // projectImageWrapper.appendChild(projectImageLink);
         projectLiveObject = document.createElement("object");
         projectLiveObject.className = "projectLiveObject";
+        projectLiveObject.id = projectTitle;
         projectLiveObject.data = projectLink;
         projectLiveObject.type = "text/html";
     }
