@@ -16,7 +16,7 @@ function run() {
 
     document.getElementById("LanguageBoxWrapper").appendChild(languageBox);
 
-    addPosition("Software Developer - Manthe Industries LLC  (2022 - Current)", "I actively aid in the development and maintance of multiple software products. I help find and fix bugs, add new features, and improve the overall quality of the software. New Features often include functional and visual UI/UX elements. I work with a small team that facilitates dynamic development strategies.", 
+    addPosition("Software Developer - Manthe Industries LLC  (2022 - Current)", "I actively aid in the development and maintenance of multiple software products. I help find and fix bugs, add new features, and improve the overall quality of the software. New Features often include functional and visual UI/UX elements. I work with a small team that facilitates dynamic development strategies.", 
     {"Java" : 3.5, "C++" : 1}, "resources/logo.webp", "https://www.vape.gg/", "Company Product Page");
 
     addProject("TakeNote", "A note taking website that allows you to create, edit, delete notes. Users can also add notes to custom groups and show only notes from certain groups on screen. Notes can also be pinned and or favorited. Note background colors can be changed. Notes can be turned into checklists where you can add new tasks, mark them completed, or delete them. The website also allows users to switch between simple light and dark themes.",
