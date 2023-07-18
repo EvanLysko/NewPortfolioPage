@@ -147,10 +147,6 @@
         border: 1px solid #121212bd;
         box-shadow: inset 0px 0px 0px 1px #121212bd;
     }
-}
-
-@media (orientation : portrait) or (max-width: 700px) {
-    
     ::-webkit-scrollbar {/*the scrollbar.*/
         background-color: #2b2b2b;
         border:0;
@@ -164,6 +160,10 @@
     ::-webkit-scrollbar-track {/*the track (progress bar) of the scrollbar.*/
         background-color: #979797bd;
     }
+}
+
+@media (orientation : portrait),  (max-width: 700px) {
+    
 
     body{
         overflow-x: hidden;
