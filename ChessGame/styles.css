@@ -151,6 +151,24 @@
 
 @media (orientation : portrait) or (max-width: 700px) {
     
+    ::-webkit-scrollbar {/*the scrollbar.*/
+        background-color: #2b2b2b;
+        border:0;
+        width: 12px;
+        
+    }
+    ::-webkit-scrollbar-thumb {/*the draggable scrolling handle.*/
+        border-radius: 6px;
+        background-color: #979797bd;
+    }
+    ::-webkit-scrollbar-track {/*the track (progress bar) of the scrollbar.*/
+        background-color: #979797bd;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+    
     #main {
         width: 100vw;
         height: 100vh;
@@ -161,18 +179,18 @@
 
     #board {
         margin: calc(1vh + 30px) 0 0 0;
-        width: min(80vw, calc(99vh - 30px));
-        height: min(80vw, calc(99vh - 30px));
+        width: min(80vw, calc(90vh - 30px));
+        height: min(80vw, calc(90vh - 30px));
     }
 
     .square {
-        width: calc(min(80vw, calc(99vh - 30px)) / 8);
-        height: calc(min(80vw, calc(99vh - 30px)) / 8);
+        width: calc(min(80vw, calc(90vh - 30px)) / 8);
+        height: calc(min(80vw, calc(90vh - 30px)) / 8);
     }
 
     .piece {
-        width: calc(min(80vw, calc(99vh - 30px)) / 8 * .8);
-        height: calc(min(80vw, calc(99vh - 30px)) / 8 * .8);
+        width: calc(min(80vw, calc(90vh - 30px)) / 8 * .8);
+        height: calc(min(80vw, calc(90vh - 30px)) / 8 * .8);
     }
 
     #sequenceWrapperWrapper{
@@ -198,13 +216,19 @@
     }
 
     #reset {
-        width: min(80vw, calc(99vh - 30px));
+        width: min(80vw, calc(90vh - 30px));
         height: 30px;
         padding: 0px;
     }
     #backToGameButton {
         width: 80vw;
         height: 30px;
+    }
+
+    #turnIndicator{
+        font-size: max(1.2vh, 10px);
+        height: max(2vh, 20px);
+        min-height: fit-content;
     }
 
 }
