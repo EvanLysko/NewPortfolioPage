@@ -65,14 +65,14 @@ async function getIntialArrowStyle() {
 }
 
 //const for oneAPI call
-let intro = "http://api.openweathermap.org/data/2.5/onecall?lat=";
+let intro = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 let lonPre = "&lon=";
 let appID = "&appid=";
 let APIKey = "354df9aa15dc96f28892023bb5d27f18";
 
 //const for geolocate
-let geoIntroZip = "http://api.openweathermap.org/geo/1.0/zip?zip=";
-let geoIntroCity = "http://api.openweathermap.org/geo/1.0/direct?q=";
+let geoIntroZip = "https://api.openweathermap.org/geo/1.0/zip?zip=";
+let geoIntroCity = "https://api.openweathermap.org/geo/1.0/direct?q=";
 let limit = "&limit=";
 
 
@@ -100,7 +100,7 @@ function getByZip(zip) {//make query string with zip code
         } 
         else {
           //make air pollution call
-          let airPolQuery = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+          let airPolQuery = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
           console.log(airPolQuery);
           getJSON(airPolQuery, function (err, airdata) {
             //this is where we do stuff with data
@@ -163,7 +163,7 @@ function getByCity(city) {//make query string with city
         } 
         else {
           //make air pollution call
-          let airPolQuery = "http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
+          let airPolQuery = "https://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey;
           console.log(airPolQuery);
           getJSON(airPolQuery, function (err, airdata) {
             //this is where we do stuff with data
