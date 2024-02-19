@@ -2,76 +2,82 @@
 
 @keyframes fadeInFromRight {
     0% {
-       opacity: 0;
-       transform: translateX(15%);
+        opacity: 0;
+        transform: translateX(15%);
     }
-    100% {
-       opacity: 1;
-       transform: translateX(0);
-    }
- } 
 
- @media (prefers-reduced-motion: no-preference) {
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
     .fadeInFromRightAnimation {
-      animation: fadeInFromRight 1.5s 1;
-      animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      animation-fill-mode: forwards;
+        animation: fadeInFromRight 1.5s 1;
+        animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        animation-fill-mode: forwards;
     }
 }
 
 
 @keyframes fadeIn {
     0% {
-       opacity: 0;
+        opacity: 0;
     }
-    100% {
-       opacity: 1;
-    }
- } 
 
- @media (prefers-reduced-motion: no-preference) {
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
     .fadeInAnimation {
-      animation: fadeIn 1.5s 1;
-      animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      animation-fill-mode: forwards;
+        animation: fadeIn 1.5s 1;
+        animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        animation-fill-mode: forwards;
     }
 }
 
 @keyframes fadeInSlower {
     0% {
-       opacity: 0;
+        opacity: 0;
     }
+
     25% {
-       opacity: 0;
+        opacity: 0;
     }
+
     100% {
-       opacity: 1;
+        opacity: 1;
     }
- } 
+}
 
 @media (prefers-reduced-motion: no-preference) {
     .fadeInSlowerAnimation {
-      animation: fadeInSlower 1.8s 1;
-      animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-      animation-fill-mode: forwards;
+        animation: fadeInSlower 1.8s 1;
+        animation-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+        animation-fill-mode: forwards;
     }
 }
 
 @media screen {
+
     .js-loading *,
     .js-loading *:before,
     .js-loading *:after {
-    animation-play-state: paused !important;
+        animation-play-state: paused !important;
     }
 
     .itemWrapper {
         opacity: 0;
     }
+
     .sectionWrapper {
         opacity: 0;
     }
 
-    *{
+    * {
         text-decoration: none;
         margin: 0;
         padding: 0;
@@ -99,13 +105,13 @@
 
     a {
         display: inline-flex;
-    }   
+    }
 
-    h1{
+    h1 {
         margin: 4vh 0vh 2vh 0vh;
     }
 
-    h2{
+    h2 {
         margin: 2vh 0vh 1vh 0vh;
     }
 
@@ -141,7 +147,7 @@
         padding-left: 22px;
     }
 
-    #IntroHeader{
+    #IntroHeader {
         margin-top: 5%;
     }
 
@@ -234,6 +240,20 @@
         margin-bottom: 10px;
     }
 
+    .PositionLinkImage {
+        margin-right: 6px;
+        cursor: pointer;
+        transform: scale(1);
+        transition-duration: .4s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .PositionLinkImage:hover {
+        transform: scale(1.05);
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+
     .projectWrapper {
         margin-bottom: 4vh;
         border-radius: 8px;
@@ -260,7 +280,7 @@
 
     .projectDescription {
         width: 35%;
-        display:block;
+        display: block;
         margin: auto;
         text-align: justify;
         text-justify: inter-word;
@@ -288,11 +308,12 @@
 
     .projectTitle {
         /* width: 30%; */
-        display: inline-block;   
+        display: inline-block;
         margin-top: auto;
         margin-bottom: auto;
         font-size: x-large;
     }
+
     .projectLanguages {
         display: flex;
         width: 35%;
@@ -300,7 +321,7 @@
     }
 
     .ProjectGithubLinkImage {
-        width:50px;
+        width: 50px;
         height: 50px;
     }
 
@@ -356,7 +377,7 @@
         margin: 10px 0px;
         display: flex;
         min-height: 40px;
-        height:min(8vh, 8vw);
+        height: min(8vh, 8vw);
         width: 100%;
     }
 
@@ -365,71 +386,93 @@
         width: 100%;
     }
 
-    .researchTitle {
-        
-    }
+    .researchTitle {}
 
     .Javascript {
         background-color: rgb(182, 194, 11);
     }
+
     .HTML {
         background-color: #830083;
     }
+
     .CSS {
         background-color: #007781;
     }
+
     .Java {
         background-color: #157e00;
     }
+
     .Python {
         background-color: #8d0000;
     }
-    .C, .Cplusplus {
+
+    .C,
+    .Cplusplus {
         background-color: #00307e;
     }
+
     .SQL {
         background-color: #925000;
     }
+
     .PHP {
         background-color: #4636a3;
     }
+
     .Psychology {
         background-color: #2b0091;
     }
+
+    .Next {
+        background-color: #2b2b2e;
+    }
+
+    .React {
+        background-color: #0099b4;
+    }
 }
 
-@media (orientation: portrait), (max-width: 800px) {
+@media (orientation: portrait),
+(max-width: 800px) {
     #IntroTopWrapper {
-        display:flex;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         width: 100%;
         margin-bottom: 0px;
     }
+
     #HeadshotWrapper {
         width: 40%;
     }
+
     #IntroRightWrapper {
         padding: 0px;
         width: 100%;
         margin-top: 0px;
     }
+
     #IntroHeaderWrapper {
         display: flex;
         width: 100%;
         justify-content: center;
         align-items: center;
     }
+
     #IntroHeader {
         width: fit-content;
         margin-top: 0px;
     }
+
     #IntroText {
         margin-top: 0px;
         text-justify: auto;
         line-height: 1.5;
     }
+
     #IntroBottomWrapper {
         display: flex;
         flex-direction: column;
@@ -453,10 +496,11 @@
         width: 100%;
         margin-top: 1vh;
     }
-    
+
     h1 {
         text-align: center;
     }
+
     h2 {
         text-align: center;
     }
@@ -560,4 +604,3 @@
         min-height: 640px;
     }
 }
-    

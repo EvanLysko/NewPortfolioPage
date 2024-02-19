@@ -11,13 +11,19 @@ window.addEventListener('resize', function() {
 
 function run() {
 
-    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
+    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "React" : 3, "Next.js" : 3, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
     languageBox.id = "languageBox";
 
     document.getElementById("LanguageBoxWrapper").appendChild(languageBox);
 
-    addPosition("Software Developer - Manthe Industries LLC  (2022 - Current)", "I actively aid in the development and maintenance of multiple software products. I help find and fix bugs, add new features, and improve the overall quality of the software. New Features often include functional and visual UI/UX elements. I work with a small team that facilitates dynamic development strategies.", 
+    addPosition("Frontend Development Intern - Naos Blockchain Inc (Feb 2024 - Current)", "I work cooperatively with senior developers and my supervisor to add elements and components to existing projects built with Next.js. I will also assist in the creation of a dashboard for Salesforce development.",
+    {"Next.js" : 3, "React" : 3, "Javascript":2},"resources/north_east_FILL1_wght400_GRAD0_opsz24.svg", "https://www.naos.xyz/", "Naos Homepage");
+
+    addPosition("Software Developer - Manthe Industries LLC  (Feb 2022 - Oct 2023)", "I actively aid in the development and maintenance of multiple software products. I help find and fix bugs, add new features, and improve the overall quality of the software. New Features often include functional and visual UI/UX elements. I work with a small team that facilitates dynamic development strategies.", 
     {"Java" : 3.5, "C++" : 1}, "resources/logo.webp", "https://www.vape.gg/", "Company Product Page");
+
+    addProject("Music Photo Player", "App that takes user search and displays song data and play audio from Spotify API and pulls up images from Google Custom Search API.",
+    {"Next" : 3, "React" : 3, "Javascript":2}, "https://github.com/EvanLysko/music-photo-app", "https://music-photo-app.vercel.app/");
 
     addProject("TakeNote", "A note taking website that allows you to create, edit, delete notes. Users can also add notes to custom groups and show only notes from certain groups on screen. Notes can also be pinned and or favorited. Note background colors can be changed. Notes can be turned into checklists where you can add new tasks, mark them completed, or delete them. The website also allows users to switch between simple light and dark themes.",
     {"Javascript" : 6, "CSS" : 2, "HTML" : 1}, "https://github.com/EvanLysko/TakeNote", "/TakeNote/index.html");
@@ -71,10 +77,11 @@ function getLanguagesElement(languageDict, vert) {
         let offsetFix = minheight + Math.max(8 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
         for (let language of Object.keys(languageDict)) {
             let languageElement = document.createElement("div");
-            if (language == "C++") {
+            let languageClassName = language.split(".")[0];
+            if (languageClassName == "C++") {
                 languageElement.className = "language Cplusplus";
             } else {
-                languageElement.className = "language " + language;
+                languageElement.className = "language " + languageClassName;
             }
             languageElement.innerHTML = language;
             projectLanguages.appendChild(languageElement);
@@ -95,10 +102,12 @@ function getLanguagesElement(languageDict, vert) {
         let offsetFix = Math.max(16 * (Object.keys(languageDict).length -1), 0)/Object.keys(languageDict).length;
         for (let language of Object.keys(languageDict)) {
             let languageElement = document.createElement("div");
-            if (language == "C++") {
+            let languageClassName = language.split(".")[0];
+
+            if (languageClassName == "C++") {
                 languageElement.className = "language Cplusplus";
             } else {
-                languageElement.className = "language " + language;
+                languageElement.className = "language " + languageClassName;
             }
             languageElement.innerHTML = language;
             projectLanguages.appendChild(languageElement);
@@ -115,7 +124,7 @@ function getLanguagesElement(languageDict, vert) {
 function resizeLanguages() {
     let lbw = document.getElementById("LanguageBoxWrapper");
     lbw.innerHTML = "";
-    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
+    let languageBox = getLanguagesElement({"Java" : 6,  "Javascript" : 5, "React" : 3, "Next.js" : 3, "Python" : 3, "HTML" : 2, "CSS" : 2, "C++" : 2, "SQL" : 1, "PHP" : 1}, true);
     languageBox.id = "languageBox";
     lbw.appendChild(languageBox);
 }
